@@ -9,5 +9,4 @@ class MusalaGatewaysApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

@@ -23,7 +23,8 @@ public class Gateway implements Serializable {
 
     @Id
     @Column(name = "SERIAL_NUMBER")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_GATEWAY_SERIAL_NUM")
+    @SequenceGenerator(name = "SEQ_GATEWAY_SERIAL_NUM", sequenceName = "SEQ_GATEWAY_SERIAL_NUM")
     private Long serialNumber;
 
     @NonNull
@@ -35,5 +36,5 @@ public class Gateway implements Serializable {
     private String ipAddress;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "gateway", cascade = CascadeType.ALL)
-    List<Device> deviceList = new ArrayList<>();
+    private List<Device> deviceList = new ArrayList<>();
 }

@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import static com.musala.gateways.utils.StringUtils.EMPTY_MESSAGE;
 
@@ -18,7 +17,7 @@ import static com.musala.gateways.utils.StringUtils.EMPTY_MESSAGE;
 @NoArgsConstructor
 public class DeviceDto {
 
-    private UUID uid;
+    private Long uid;
 
     @NotBlank(message = EMPTY_MESSAGE)
     private String vendor;

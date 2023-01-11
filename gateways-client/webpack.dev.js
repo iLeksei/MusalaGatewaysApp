@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -40,20 +39,6 @@ module.exports = {
                     'sass-loader',
                 ],
             },
-            {
-                test: /\.(jpg|jpeg|gif)$/,
-                type: "asset/resource",
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                    }
-                }
-            },
-            {
-                test: /\.(svg|png)$/,
-                use: ["url-loader"]
-            }
         ],
     },
     resolve: {
@@ -70,11 +55,11 @@ module.exports = {
             inject: "body",
             cache: false,
         }),
-        // new webpack.HotModuleReplacementPlugin(),
     ],
     optimization: {
         concatenateModules: true,
         minimize: true,
+        nodeEnv: "develop",
         splitChunks: {
             cacheGroups: {
                 commons: {
@@ -86,7 +71,6 @@ module.exports = {
         },
         minimizer: []
     },
-    // watch: true,
     devServer: {
         devMiddleware: {
             writeToDisk: true

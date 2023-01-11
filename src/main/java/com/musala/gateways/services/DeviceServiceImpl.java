@@ -1,7 +1,6 @@
 package com.musala.gateways.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.musala.gateways.dtos.DeviceDto;
 import com.musala.gateways.entities.Device;
 import com.musala.gateways.entities.Gateway;
@@ -18,7 +17,6 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -78,6 +76,6 @@ public class DeviceServiceImpl implements DeviceService {
     @Override
     public void deleteDevice(String uid) {
         LOG.info("Delete device with uid: {}", uid);
-        this.deviceRepository.deleteById(UUID.fromString(uid));
+        this.deviceRepository.deleteById(Long.valueOf(uid));
     }
 }

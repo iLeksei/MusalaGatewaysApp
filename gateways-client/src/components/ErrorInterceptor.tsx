@@ -28,6 +28,6 @@ export class ErrorInterceptor extends React.Component {
             return <span><Alert variant="danger">{StringUtils.getCommonErrorMessage()}</Alert></span>
         }
 
-        return this.props.children;
+        return <>{this.props.children}</>;
     }
 }

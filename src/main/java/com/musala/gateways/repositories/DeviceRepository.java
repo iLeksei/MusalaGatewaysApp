@@ -6,10 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.UUID;
-
 @Repository
-public interface DeviceRepository extends JpaRepository<Device, UUID> {
+public interface DeviceRepository extends JpaRepository<Device, Long> {
 
     @Query(value = "SELECT count(*) FROM DEVICE d WHERE d.GATEWAY_SERIAL_NUM =:serialNumber", nativeQuery = true)
     Integer countDevicesByGateway(@Param("serialNumber") Long gatewaySerialNumber);

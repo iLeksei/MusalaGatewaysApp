@@ -20,14 +20,20 @@ const columns = [
     {
         dataField: "vendor",
         text: "Vendor",
+        align: 'center',
+        headerAlign: 'center',
     },
     {
         dataField: "createdAt",
         text: "Date created",
+        align: 'center',
+        headerAlign: 'center',
     },
     {
         dataField: "status",
         text: "Status",
+        align: 'center',
+        headerAlign: 'center',
     }
 ]
 
@@ -48,7 +54,7 @@ export const DevicesTable = React.memo((props: IProps): ReactElement => {
     const selectRow: SelectRowProps<Device> = {
         mode: "radio",
         clickToSelect: true,
-        bgColor: '#adb5bd',
+        bgColor: '#c8cfd4',
         hideSelectColumn: true,
         onSelect: props.onSelect,
         selected: [props.selectedDevice?.uid || ""],

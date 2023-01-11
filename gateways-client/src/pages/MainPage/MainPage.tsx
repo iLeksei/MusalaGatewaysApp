@@ -49,7 +49,7 @@ export const MainPage = (): ReactElement => {
         fetchDevices(selectedGateway);
     }
 
-    const onSaveGatewayCb = async () => {
+    const onSaveGatewayCb = async (): Promise<void> => {
         toggleGatewayForm();
         const result = await fetchGateways();
         setGateways(result || []);
@@ -104,8 +104,9 @@ export const MainPage = (): ReactElement => {
     }
 
     return (
-        <main className="main-page__container">
-            <ErrorInterceptor>
+        <ErrorInterceptor>
+            <header  className="main-page__header"><h2>Musala Gateways Application</h2></header>
+            <main className="main-page__container">
                 <section>
                     <TableCaption
                         caption="Gateways:"
@@ -149,7 +150,7 @@ export const MainPage = (): ReactElement => {
                 >
                     <DeviceForm onSaveCb={onSaveDeviceCb} selectedGateway={selectedGateway}/>
                 </FormModal>
-            </ErrorInterceptor>
-        </main>
+            </main>
+        </ErrorInterceptor>
     );
 }

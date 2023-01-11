@@ -13,14 +13,21 @@ const columns = [
     {
         dataField: "serialNumber",
         text: "Serial Number",
+        style: { width: "33.3%"},
     },
     {
         dataField: "name",
         text: "Name",
+        align: 'center',
+        headerAlign: 'center',
+        style: { width: "33.3%"},
     },
     {
         dataField: "ipAddress",
         text: "IPv4 Address",
+        align: 'center',
+        headerAlign: 'center',
+        style: { width: "33.3%"},
     },
 ];
 
@@ -29,7 +36,7 @@ export const GatewaysTable = React.memo((props: IProps): ReactElement => {
     const selectRow: SelectRowProps<Gateway> = {
         mode: "radio",
         clickToSelect: true,
-        bgColor: '#adb5bd',
+        bgColor: '#c8cfd4',
         hideSelectColumn: true,
         onSelect: props.onSelect,
         selected: [props.selectedGateway?.serialNumber || ""],

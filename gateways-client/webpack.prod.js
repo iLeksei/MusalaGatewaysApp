@@ -1,8 +1,6 @@
 const path = require('path');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 
 module.exports = {
@@ -37,20 +35,6 @@ module.exports = {
                     'sass-loader',
                 ],
             },
-            {
-                test: /\.(jpg|jpeg|gif)$/,
-                type: "asset/resource",
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                    }
-                }
-            },
-            {
-                test: /\.(svg|png)$/,
-                use: ["url-loader"]
-            }
         ],
     },
     resolve: {
@@ -67,15 +51,12 @@ module.exports = {
             inject: "body",
             cache: false,
         }),
-        // new CleanWebpackPlugin({
-        //     cleanOnceBeforeBuildPatterns: [
-        //         "!template.html", "!manifest.json", "!robots.txt", "!favicon-16x16.png"
-        //     ],
-        // }), // для очистки dict при новой сборки
+        new TerserPlugin()
     ],
     optimization: {
         concatenateModules: true,
         minimize: true,
+        nodeEnv: "production",
         splitChunks: {
             cacheGroups: {
                 commons: {

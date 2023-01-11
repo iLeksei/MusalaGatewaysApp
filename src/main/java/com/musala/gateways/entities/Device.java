@@ -5,12 +5,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 
 @ToString(exclude = {"gateway"})
@@ -24,10 +22,10 @@ public class Device implements Serializable {
     private static final long serialVersionUID = 3457243418830839516L;
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "UID", columnDefinition = "VARCHAR(255)")
-    private UUID uid;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_DAVICE_UID")
+    @SequenceGenerator(name = "SEQ_DAVICE_UID", sequenceName = "SEQ_DAVICE_UID")
+    @Column(name = "UID")
+    private Long uid;
 
     @Column(name = "VENDOR")
     private String vendor;
