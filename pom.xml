@@ -89,6 +89,7 @@
     </dependencies>
 
     <build>
+        <finalName>musala-gateways-app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
