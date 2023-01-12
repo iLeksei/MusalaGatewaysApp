@@ -75,6 +75,7 @@ export const MainPage = (): ReactElement => {
         } catch (err: any) {
             console.error(err.stack);
         }
+        return [];
     }
 
     const fetchDevices = async (gateway: Gateway | null) => {
@@ -86,6 +87,7 @@ export const MainPage = (): ReactElement => {
         } catch (err: any) {
             console.error(err.stack);
         }
+        return [];
     }
 
     const deleteDevice = async () => {

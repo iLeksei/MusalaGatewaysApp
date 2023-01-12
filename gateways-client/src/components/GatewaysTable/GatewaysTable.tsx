@@ -49,7 +49,7 @@ export const GatewaysTable = React.memo((props: IProps): ReactElement => {
                 noDataIndication="There are no Gateways."
                 keyField="serialNumber"
                 columns={columns}
-                data={props.data}
+                data={props.data || []}
                 selectRow={selectRow}
             />
     );
