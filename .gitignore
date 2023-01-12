@@ -17,14 +17,11 @@ target/
 *.iws
 *.iml
 *.ipr
-*.pdf
 
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
-**/node_modules/
-**/package-lock.json
-/dist/
+
 /nbdist/
 /.nb-gradle/
 build/
@@ -37,3 +34,11 @@ build/
 mvnw
 mvnw.cmd
 .mvn
+
+
+### client ###
+**/node_modules/
+**/package-lock.json
+/dist/
+*.pdf
+src/main/resources/static/index.html
