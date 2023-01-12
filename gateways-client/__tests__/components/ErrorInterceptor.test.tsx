@@ -1,4 +1,5 @@
 import * as React from "react";
+// @ts-ignore
 import {render, screen} from '@testing-library/react';
 import fetchMock from "jest-fetch-mock";
 

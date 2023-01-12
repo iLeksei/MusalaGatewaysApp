@@ -1,4 +1,5 @@
 import * as React from "react";
+// @ts-ignore
 import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import fetchMock from "jest-fetch-mock";

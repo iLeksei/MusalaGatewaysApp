@@ -1,5 +1,6 @@
 import * as React from "react";
-import {render, screen} from '@testing-library/react';
+// @ts-ignore
+import {render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import fetchMock from "jest-fetch-mock";
 
@@ -36,5 +37,21 @@ describe("GatewayForm tests", () => {
         expect(onSaveCb).toHaveBeenCalledTimes(1)
         // @ts-ignore
         expect(fetch.mock.calls.length).toEqual(1);
+    });
+
+    it('Should send request and get Device violations', async function () {
+        const onSaveCb = jest.fn();
+        fetchMock.resetMocks();
+        fetchMock.doMockIf(`${getBaseUrl()}/gateway`)
+            .mockResponse(JSON.stringify({"Gateway": "Test violation"}), {status: 403});
+        let {} = setUp({onSaveCb: onSaveCb})
+        await userEvent.type(screen.getAllByRole("textbox")[0], "gatewayTestName");
+        await userEvent.type(screen.getAllByRole("textbox")[1], "1.1.1.1");
+        await userEvent.click(screen.getByRole('button'))
+        // @ts-ignore
+        expect(fetch.mock.calls.length).toEqual(1);
+        await waitFor(() => {
+            expect(screen.getByText("Test violation")).toBeInTheDocument()
+        })
     });
 })

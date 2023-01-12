@@ -31,14 +31,14 @@ export const DeviceForm = (props: IProps): JSX.Element => {
             const response = await fetch(url, requestInit);
             if (!response.ok) {
                 let result = await response.json();
-                if (typeof result === "object" && "Device" in result) {
+                if (typeof result === "object" && result["Device"]) {
                     setErrors(result);
                 }
                 return;
             }
             props.onSaveCb();
         } catch (err) {
-            setErrors({Gateway: "Something goes wrong :( Please connect with administrator!"});
+            setErrors({Device: "Something goes wrong :( Please connect with administrator!"});
         }
     }
 
@@ -77,8 +77,8 @@ export const DeviceForm = (props: IProps): JSX.Element => {
             </Form.Group>
             <br/>
             {
-                errors["Gateway"] &&
-                <Alert variant="danger">{errors["Gateway"]}</Alert>
+                errors["Device"] &&
+                <Alert variant="danger">{errors["Device"]}</Alert>
             }
             <Button onClick={onSave}>Save</Button>
         </Form>
