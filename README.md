@@ -5,11 +5,11 @@
 
 ## Build project:
 1. Use **install.bat** for Windows or **install.sh** for Linux
-2. For manual installation use command: **mvn install** in root project directory
+2. For manual installation use command: **mvn install** in the root project directory
 
 ## Run application:
 1. Use **start.bat** for Windows or **start.sh** for Linux
-2. For manual execution use command in root project directory:
+2. For manual execution use command in the root project directory:
    > java -jar target/musala-gateways-app.jar
     
 ## Application parameters:
