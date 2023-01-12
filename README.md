@@ -26,6 +26,7 @@
     > Or change these parameters in start.bat or start.sh   
 
 ## Notes:
+   - User Interface will be available on the **PORT** you set or default **8081**.
    - In the requirements were a couple of points that with the real app
    will be important to clarify for eliminating ambiguities:\
     - **a unique serial number (string)** - serial number is a number, why we need to keep it like a string?\
@@ -34,4 +35,5 @@
     - It's important to know about an amount of data that can be displaying on the client side.
       Because in a case when it's a huge amount, it will be awesome to add pagination, searching.\
     - Above controllers you can find annotation @CrossOrigin("*"),
-      because we don't know, can our service be available only via UI. 
+      because we don't know, can our service be available only via UI.
+    - initial sql script "data.sql" is stored in "src/main/resources".
