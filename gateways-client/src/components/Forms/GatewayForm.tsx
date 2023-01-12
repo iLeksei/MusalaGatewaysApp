@@ -1,10 +1,11 @@
 import React, {useState} from "react";
+// @ts-ignore
 import {Alert, Button, Form} from "react-bootstrap";
 
 import Normalizers from "../../utils/Normalizers";
 import Validators from "../../utils/Validators";
 import {getBaseUrl} from "../../utils/CommonUtils";
-import {StringUtils} from "../../utils/StringUtils";
+import {COMMON_ERROR_MESSAGE} from "../../constants";
 
 interface IProps {
     onSaveCb: () => any;
@@ -39,7 +40,7 @@ export const GatewayForm = (props: IProps): JSX.Element => {
             }
             props.onSaveCb();
         } catch (err) {
-            setErrors({Gateway: StringUtils.getCommonErrorMessage()});
+            setErrors({Gateway: COMMON_ERROR_MESSAGE});
         }
     }
 

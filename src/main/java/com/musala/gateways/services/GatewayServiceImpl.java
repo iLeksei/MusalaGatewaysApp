@@ -44,7 +44,7 @@ public class GatewayServiceImpl implements GatewayService {
         }
 
         Gateway newGateway = new Gateway();
-        newGateway.setName(StringUtils.sanitize(gatewayDto.getName()));
+        newGateway.setName(StringUtils.sanitize(gatewayDto.getName()).trim());
         newGateway.setIpAddress(gatewayDto.getIpAddress());
         gatewayRepository.save(newGateway);
         LOG.info("Gateway with name: {} and ipAddress: {} was added", gatewayName, ipAddress);

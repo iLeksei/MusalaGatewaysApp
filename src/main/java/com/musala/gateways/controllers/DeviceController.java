@@ -43,7 +43,7 @@ public class DeviceController {
     }
 
     @DeleteMapping(value = "/device/{uid}")
-    public HttpStatus deleteDevice(@PathVariable String uid) {
+    public HttpStatus deleteDevice(@PathVariable String uid) throws Exception {
         LOG.info("DELETE /device uid={}", uid);
         this.deviceService.deleteDevice(uid);
         return HttpStatus.OK;

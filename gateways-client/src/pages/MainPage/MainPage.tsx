@@ -11,11 +11,9 @@ import {GatewayForm} from "../../components/Forms/GatewayForm";
 import {DeviceForm} from "../../components/Forms/DeviceForm";
 import {getBaseUrl} from "../../utils/CommonUtils";
 import {ErrorInterceptor} from "../../components/ErrorInterceptor";
+import {MAX_DEVICES_AMOUNT} from "../../constants";
 
 import "./styles.scss"
-
-
-const MAX_DEVICES_AMOUNT: number = 10;
 
 export const MainPage = (): ReactElement => {
     const [gateways, setGateways] = useState<Gateway[]>([]);

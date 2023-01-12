@@ -16,8 +16,14 @@ const Validator: { [key: string]: any } = {
     },
     ipAddress: (value: string = ""): string | null => IPv4_REGEXP.test(value) && value.length >= MIN_IPv4_LENGTH ?
         null : "Invalid IPv4 Address format!",
-    name: (value: string = ""): string | null => value.trim().length ? null : "Invalid Name",
-    vendor: (value: string = ""): string | null => value.trim().length ? null : "Invalid Vendor",
+    name: (value: string = ""): string | null => {
+        if (!value) return "Invalid Name";
+        return value.trim().length ? null : "Invalid Name"
+    },
+    vendor: (value: string = ""): string | null => {
+        if (!value) return "Invalid Vendor";
+        return value.trim().length ? null : "Invalid Vendor"
+    },
 }
 
 

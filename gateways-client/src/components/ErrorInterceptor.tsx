@@ -1,8 +1,8 @@
 import React, {ErrorInfo} from "react";
 import {Alert} from "react-bootstrap";
 
-import {StringUtils} from "../utils/StringUtils";
 import {getBaseUrl} from "../utils/CommonUtils";
+import {COMMON_ERROR_MESSAGE} from "../constants";
 
 export class ErrorInterceptor extends React.Component {
     state = {
@@ -25,7 +25,7 @@ export class ErrorInterceptor extends React.Component {
 
     render() {
         if (this.state.hasError) {
-            return <span><Alert variant="danger">{StringUtils.getCommonErrorMessage()}</Alert></span>
+            return <span><Alert variant="danger">{COMMON_ERROR_MESSAGE}</Alert></span>
         }
 
         return <>{this.props.children}</>;

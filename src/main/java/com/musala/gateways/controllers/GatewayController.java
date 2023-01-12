@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 @CrossOrigin("*")
 @Slf4j
 @RestController
@@ -35,7 +37,7 @@ public class GatewayController {
         return responseJson;
     }
 
-    @PostMapping(value = "/gateway")
+    @PostMapping(value = "/gateway", consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<String> createGateway(@RequestBody GatewayDto gatewayDto) throws JsonProcessingException {
         LOG.info("POST /gateway request data={}", gatewayDto);
         Map<String, String> violations = gatewayService.addNewGateway(gatewayDto);

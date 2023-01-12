@@ -36,8 +36,7 @@ public class DeviceServiceImpl implements DeviceService {
 
 
     @Override
-    public Map<String, String> addNewDevice(DeviceDto deviceDto, String gatewaySerialNumber)
-            throws JsonProcessingException {
+    public Map<String, String> addNewDevice(DeviceDto deviceDto, String gatewaySerialNumber) {
         Map<String, String> violations = DeviceValidator.validate(deviceDto);
         Integer devicesAmount = this.deviceRepository.countDevicesByGateway(Long.valueOf(gatewaySerialNumber));
 
@@ -55,7 +54,7 @@ public class DeviceServiceImpl implements DeviceService {
         LOG.info("Device with vendor: {} and status: {} is valid", deviceDto.getVendor(), deviceDto.getStatus());
         Device newDevice = new Device();
         newDevice.setCreatedAt(LocalDateTime.now());
-        newDevice.setVendor(StringUtils.sanitize(deviceDto.getVendor()));
+        newDevice.setVendor(StringUtils.sanitize(deviceDto.getVendor()).trim());
         newDevice.setStatus(deviceDto.getStatus());
         Gateway gateway = this.gatewayRepository.getById(Long.valueOf(gatewaySerialNumber));
         newDevice.setGateway(gateway);
@@ -66,7 +65,7 @@ public class DeviceServiceImpl implements DeviceService {
     @Transactional
     @Override
     public List<DeviceDto> getAllDevicesForGateway(String gatewaySerialNumber) {
-        LOG.info("Removing all devices for gateway with serialNumber: {}", gatewaySerialNumber);
+        LOG.info("Getting all devices for gateway with serialNumber: {}", gatewaySerialNumber);
         Gateway gateway = this.gatewayRepository.getById(Long.valueOf(gatewaySerialNumber));
         return gateway.getDeviceList().stream().map(device ->
                 new DeviceDto(device.getUid(), device.getVendor(), device.getCreatedAt(), device.getStatus())
