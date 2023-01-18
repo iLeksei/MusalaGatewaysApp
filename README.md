@@ -27,6 +27,7 @@
 
 ## Notes:
    - User Interface will be available on the **PORT** you set or default **8081**.
+   - H2 in-memory Database: **testdb**
    - In the requirements were a couple of points that with the real app
    will be important to clarify for eliminating ambiguities:\
     - **a unique serial number (string)** - serial number is a number, why we need to keep it like a string?\
