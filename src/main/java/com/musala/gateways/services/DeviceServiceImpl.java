@@ -1,6 +1,5 @@
 package com.musala.gateways.services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.musala.gateways.dtos.DeviceDto;
 import com.musala.gateways.entities.Device;
 import com.musala.gateways.entities.Gateway;

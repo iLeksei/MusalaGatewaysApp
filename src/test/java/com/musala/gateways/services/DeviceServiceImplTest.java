@@ -23,7 +23,6 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
-//@RunWith(SpringRunner.class)
 @SpringBootTest
 public class DeviceServiceImplTest {
 
@@ -66,7 +65,7 @@ public class DeviceServiceImplTest {
     }
 
     @Test
-    public void shouldAddNewDevice() throws JsonProcessingException {
+    public void shouldAddNewDevice() {
         when(deviceRepository.countDevicesByGateway(anyLong())).thenReturn(0);
         DeviceDto deviceDto = new DeviceDto();
         deviceDto.setStatus(StatusEnum.ONLINE);
@@ -76,7 +75,7 @@ public class DeviceServiceImplTest {
     }
 
     @Test
-    public void shouldReturnViolationsMap() throws JsonProcessingException {
+    public void shouldReturnViolationsMap() {
         when(deviceRepository.countDevicesByGateway(anyLong())).thenReturn(10);
         when(gatewayRepository.getById(anyLong())).thenReturn(buildTestGateway(1L));
         DeviceDto deviceDto = new DeviceDto();
